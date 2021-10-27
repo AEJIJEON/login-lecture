@@ -10,11 +10,17 @@ const registerBtn = document.querySelector("button");
 
 const register = (e) => {
     e.preventDefault();
+    if (!id.value) return alert("아이디 입력 부탁");
+    if (!password.value || !confirmPassword.value) return alert("비밀번호 입력 부탁");
+
+    if (password.value !== confirmPassword.value) {
+        return alert("비밀번호 일치하지 않음");
+    }
+
   const req = {
     id: id.value,
     name: name.value,
     password: password.value,
-    confirmPassword: confirmPassword.value,
     };
     console.log(req);
   fetch("/register", {
