@@ -9,7 +9,6 @@ const login = () =>  {
     id: id.value,
     password: password.value,
   };
-    console.log(JSON.stringify(req));
     fetch("/login", {
         'method': "POST",
        'headers': {
