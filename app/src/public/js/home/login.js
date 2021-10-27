@@ -4,7 +4,8 @@ const id = document.querySelector("#id");
 const password = document.querySelector("#password");
 const loginBtn = document.querySelector("button");
 
-const login = () =>  {
+const login = (e) => {
+    e.preventDefault();
   const req = {
     id: id.value,
     password: password.value,
