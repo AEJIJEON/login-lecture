@@ -6,6 +6,11 @@ const loginBtn = document.querySelector("button");
 
 const login = (e) => {
     e.preventDefault();
+ if (!id.value) return alert("아이디 입력 부탁");
+ if (!password.value) return alert("비밀번호 입력 부탁");
+ 
+
+
   const req = {
     id: id.value,
     password: password.value,
@@ -21,6 +26,7 @@ const login = (e) => {
             if (res.success) {
                 location.href = "/";
             } else {
+                if (res.err) return alert(res.err);
                 alert(res.msg);
             }
         }).catch((err) => {
