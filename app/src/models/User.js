@@ -21,11 +21,15 @@ class User{
         
     }
 
-    register() {
+    async register() {
         const client = this.body;
-
-        const response = UserStorage.save(client);
-        return response;
+        // async await은 try catch 문으로 에러 처리 가능
+        try {
+        const response = await UserStorage.save(client);
+            return response;
+        } catch (err) {
+            return { success: false, msg: err };
+        }
     }
 }
 
